@@ -5,31 +5,41 @@ import 'package:date_colors/date_colors.dart';
 void main() {
   // Unit Test: `ColorsOfTheYear`
   test('UT-COTY01-VerifiesWhetherAllColorsArePresent', () {
-    final int mapLength = ColorsOfTheYear.length;
-    expect(mapLength, 10);
+    final ColorsOfTheYear coty = ColorsOfTheYear();
+    expect(coty.values.length, 10);
   });
   test('UT-COTY02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
-    final int? color = ColorsOfTheYear.values[0];
-    expect(color, 0xFF6c6874);
+    final ColorsOfTheYear coty = ColorsOfTheYear();
+    expect(coty.values[0], 0xFF6c6874);
   });
 
   // Unit Test: `ColorsOfJanuary`
   test('UT-COJan01-VerifiesWhetherAllColorsArePresent', () {
-    final int mapLength = ColorsOfJanuary.length;
-    expect(mapLength, 31);
+    final ColorsOfJanuary coJan = ColorsOfJanuary();
+    expect(coJan.calendarDays.length, 31);
   });
   test('UT-COJan02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
-    final int? color = ColorsOfJanuary.values[1];
-    expect(color, 0xFF015696);
+    final ColorsOfJanuary coJan = ColorsOfJanuary();
+    expect(coJan.values[1], 0xFF015696);
   });
 
   // Unit Test: `ColorsOfFebruary`
   test('UT-COFeb01-VerifiesWhetherAllColorsArePresent', () {
-    final int mapLength = ColorsOfFebruary.length;
-    expect(mapLength, 29);
+    final ColorsOfFebruary coFeb = ColorsOfFebruary();
+    expect(coFeb.calendarDays.length, 29);
   });
   test('UT-COFeb02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
-    final int? color = ColorsOfFebruary.values[1];
-    expect(color, 0xFFC60650);
+    final ColorsOfFebruary coFeb = ColorsOfFebruary();
+    expect(coFeb.values[1], 0xFFC60650);
+  });
+
+  // Unit Test: `ColorsOfMarch`
+  test('UT-COMar01-VerifiesWhetherAllColorsArePresent', () {
+    final ColorsOfMarch coMar = ColorsOfMarch();
+    expect(coMar.calendarDays.length, 31);
+  });
+  test('UT-COMar02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
+    final ColorsOfMarch coMar = ColorsOfMarch();
+    expect(coMar.values[1], 0xFFC4B600);
   });
 }
