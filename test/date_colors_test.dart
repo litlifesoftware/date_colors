@@ -42,4 +42,14 @@ void main() {
     final ColorsOfMarch coMar = ColorsOfMarch();
     expect(coMar.values[1], 0xFFC4B600);
   });
+
+  // Unit Test: `ColorsOfApril`
+  test('UT-COApr01-VerifiesWhetherAllColorsArePresent', () {
+    final ColorsOfApril coApr = ColorsOfApril();
+    expect(coApr.calendarDays.length, 30);
+  });
+  test('UT-COApr02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
+    final ColorsOfApril coApr = ColorsOfApril();
+    expect(coApr.values[1], 0xFFFFF798);
+  });
 }

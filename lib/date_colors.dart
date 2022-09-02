@@ -8,6 +8,7 @@
 /// To use, import `package:date_colors/date_colors.dart`.
 library date_colors;
 
+export 'src/data/colors_of_april.dart';
 export 'src/data/colors_of_february.dart';
 export 'src/data/colors_of_january.dart';
 export 'src/data/colors_of_march.dart';
