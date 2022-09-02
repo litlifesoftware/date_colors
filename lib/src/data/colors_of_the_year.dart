@@ -8,16 +8,16 @@ import 'package:date_colors/date_colors.dart';
 class ColorsOfTheYear implements ColorData {
   @override
   Map<int, int> get values => {
-        0: 0xFF6c6874,
-        1: 0xFF6c6874,
-        2: 0xFFa1e8d9,
-        3: 0xFFa1e8d9,
-        4: 0xFF593122,
-        5: 0xFF593122,
-        6: 0xFF951f1d,
-        7: 0xFF951f1d,
-        8: 0xFF595241,
-        9: 0xFF595241,
+        00: 0xFF6C6874,
+        01: 0xFF6C6874,
+        02: 0xFFA1E8D9,
+        03: 0xFFA1E8D9,
+        04: 0xFF593122,
+        05: 0xFF593122,
+        06: 0xFF951F1D,
+        07: 0xFF951F1D,
+        08: 0xFF595241,
+        09: 0xFF595241,
       };
 
   Iterable<int> get lastDigitsOfYears => values.keys;
