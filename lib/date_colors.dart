@@ -11,6 +11,7 @@ library date_colors;
 export 'src/data/colors_of_april.dart';
 export 'src/data/colors_of_february.dart';
 export 'src/data/colors_of_january.dart';
+export 'src/data/colors_of_june.dart';
 export 'src/data/colors_of_march.dart';
 export 'src/data/colors_of_may.dart';
 export 'src/data/colors_of_the_year.dart';
