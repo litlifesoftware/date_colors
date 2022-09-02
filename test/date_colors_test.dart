@@ -82,4 +82,14 @@ void main() {
     final ColorsOfJuly coJul = ColorsOfJuly();
     expect(coJul.values[1], 0xFFCEE2F5);
   });
+
+  // Unit Test: `ColorsOfAugust`
+  test('UT-COAug01-VerifiesWhetherAllColorsArePresent', () {
+    final ColorsOfAugust coAug = ColorsOfAugust();
+    expect(coAug.calendarDays.length, 31);
+  });
+  test('UT-COAug02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
+    final ColorsOfAugust coAug = ColorsOfAugust();
+    expect(coAug.values[1], 0xFF9C3921);
+  });
 }
