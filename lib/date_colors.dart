@@ -16,6 +16,7 @@ export 'src/data/colors_of_july.dart';
 export 'src/data/colors_of_june.dart';
 export 'src/data/colors_of_march.dart';
 export 'src/data/colors_of_may.dart';
+export 'src/data/colors_of_november.dart';
 export 'src/data/colors_of_october.dart';
 export 'src/data/colors_of_september.dart';
 export 'src/data/colors_of_the_year.dart';
