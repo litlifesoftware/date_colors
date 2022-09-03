@@ -102,4 +102,14 @@ void main() {
     final ColorsOfSeptember coSep = ColorsOfSeptember();
     expect(coSep.values[1], 0xFFD0D2D4);
   });
+
+  // Unit Test: `ColorsOfOctober`
+  test('UT-COOct01-VerifiesWhetherAllColorsArePresent', () {
+    final ColorsOfOctober coOct = ColorsOfOctober();
+    expect(coOct.calendarDays.length, 31);
+  });
+  test('UT-COOct02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
+    final ColorsOfOctober coOct = ColorsOfOctober();
+    expect(coOct.values[1], 0xFFC04F33);
+  });
 }
