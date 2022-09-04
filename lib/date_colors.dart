@@ -10,6 +10,7 @@ library date_colors;
 
 export 'src/data/colors_of_april.dart';
 export 'src/data/colors_of_august.dart';
+export 'src/data/colors_of_december.dart';
 export 'src/data/colors_of_february.dart';
 export 'src/data/colors_of_january.dart';
 export 'src/data/colors_of_july.dart';
