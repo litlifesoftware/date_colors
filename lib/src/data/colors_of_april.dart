@@ -4,7 +4,7 @@ import 'package:date_colors/date_colors.dart';
 /// - The color hex codes provided in the manual are converted from 24
 /// bit to 32 bit colors by adding the full bits of `FF` at the
 /// beginning of each color value.
-class ColorsOfApril implements MonthColors {
+class ColorsOfApril implements MonthColorData {
   @override
   Map<int, int> get values => {
         01: 0xFFFFF798,
