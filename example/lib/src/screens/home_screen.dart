@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:example/src/screens.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,12 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> screenTabContent = const [
-    Center(
-      child: Text("Months"),
-    ),
-    Center(
-      child: Text("Picker"),
-    ),
+    MonthScreen(),
+    PickerScreen(),
   ];
 
   @override
