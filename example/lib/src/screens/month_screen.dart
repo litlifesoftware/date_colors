@@ -1,5 +1,5 @@
-import 'package:example/src/data/month_data.dart';
-import 'package:example/src/screens/month_detail_screen.dart';
+import 'package:example/data.dart';
+import 'package:example/screens.dart';
 import 'package:flutter/material.dart';
 
 class MonthScreen extends StatefulWidget {
