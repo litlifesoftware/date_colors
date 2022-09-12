@@ -3,11 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // Unit Test: `ColorsOfMarch`
-  test('UT-COMar01-VerifiesWhetherAllColorsArePresent', () {
+  test('UT-COMar01-VerifyWhetherAllColorsArePresent', () {
     final ColorsOfMarch coMar = ColorsOfMarch();
     expect(coMar.calendarDays.length, 31);
   });
-  test('UT-COMar02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
+  test('UT-COMar02-VerifyWhetherTheFirstColorMatchesSpecifications', () {
     final ColorsOfMarch coMar = ColorsOfMarch();
     expect(coMar.values[1], 0xFFC4B600);
   });

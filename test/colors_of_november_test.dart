@@ -3,11 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // Unit Test: `ColorsOfNovember`
-  test('UT-CONov01-VerifiesWhetherAllColorsArePresent', () {
+  test('UT-CONov01-VerifyWhetherAllColorsArePresent', () {
     final ColorsOfNovember coNov = ColorsOfNovember();
     expect(coNov.calendarDays.length, 30);
   });
-  test('UT-CONov02-VerifiesWhetherTheFirstColorMatchesSpecifications', () {
+  test('UT-CONov02-VerifyWhetherTheFirstColorMatchesSpecifications', () {
     final ColorsOfNovember coNov = ColorsOfNovember();
     expect(coNov.values[1], 0xFFF5911F);
   });
