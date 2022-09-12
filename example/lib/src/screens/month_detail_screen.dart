@@ -1,6 +1,9 @@
 import 'package:date_colors/date_colors.dart';
-import 'package:example/src/data/month_data.dart';
+import 'package:example/data.dart';
+import 'package:example/extensions.dart';
 import 'package:flutter/material.dart';
+
+import 'color_detail_screen.dart';
 
 class MonthDetailScreen extends StatefulWidget {
   final int index;
@@ -101,6 +104,14 @@ class _MonthDayTile extends StatefulWidget {
 class _MonthDayTileState extends State<_MonthDayTile> {
   late Color _colorOfTheSeason;
 
+  void onTap(Color color) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: ((context) => ColorDetailScreen(color: color)),
+      ),
+    );
+  }
+
   @override
   void initState() {
     _colorOfTheSeason = DateColorScheme(
@@ -113,6 +124,7 @@ class _MonthDayTileState extends State<_MonthDayTile> {
   Widget build(BuildContext context) {
     return ListTile(
       tileColor: _colorOfTheSeason,
+      onTap: () => onTap(_colorOfTheSeason),
       title: Text(
         widget.day.toString(),
         style: const TextStyle(
@@ -121,7 +133,7 @@ class _MonthDayTileState extends State<_MonthDayTile> {
         ),
       ),
       subtitle: Text(
-        _colorOfTheSeason.value.toRadixString(16).toUpperCase(),
+        _colorOfTheSeason.hexCode,
         style: const TextStyle(
           color: Colors.white,
         ),
