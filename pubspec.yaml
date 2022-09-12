@@ -1,5 +1,5 @@
 name: date_colors
-description: A new Flutter package project.
+description: A Flutter package to generate a color scheme based on a date.
 version: 0.0.1
 homepage:
 
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  crypto: ^3.0.2
 
 dev_dependencies:
   flutter_test:
