@@ -9,8 +9,14 @@ import 'package:date_colors/src/controller/date_color_controller.dart';
 /// - Furthermore it allows to generate unique colors for the year and the
 /// date.
 class DateColorScheme {
+  /// The [DateTime] object, the scheme will be based on.
   final DateTime date;
+
+  /// The [DateColorController] instance allowing to generate the corresponding
+  /// color values.
   final DateColorController controller = const DateColorController();
+
+  /// Creates a [DateColorScheme].
   const DateColorScheme(this.date);
 
   /// Returns a [Color] based on the elements represented on the Chinese Zodiac.
