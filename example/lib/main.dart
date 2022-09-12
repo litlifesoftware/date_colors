@@ -2,17 +2,18 @@ import 'package:example/src/screens.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  static const String title = 'DateColors Example';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DateColors Example',
+      debugShowCheckedModeBanner: false,
+      title: App.title,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.grey,
