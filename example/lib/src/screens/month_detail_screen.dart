@@ -85,7 +85,7 @@ class _MonthDetailScreenState extends State<MonthDetailScreen> {
   }
 }
 
-class _MonthDayTile extends StatelessWidget {
+class _MonthDayTile extends StatefulWidget {
   final int day;
   final int month;
   const _MonthDayTile({
@@ -94,15 +94,37 @@ class _MonthDayTile extends StatelessWidget {
     required this.month,
   }) : super(key: key);
 
-  DateTime get _date => DateTime(2000, month, day);
+  @override
+  State<_MonthDayTile> createState() => _MonthDayTileState();
+}
+
+class _MonthDayTileState extends State<_MonthDayTile> {
+  late Color _colorOfTheSeason;
+
+  @override
+  void initState() {
+    _colorOfTheSeason = DateColorScheme(
+      DateTime(2000, widget.month, widget.day),
+    ).colorOfTheSeason;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      tileColor: DateColorScheme(_date).colorOfTheSeason,
+      tileColor: _colorOfTheSeason,
       title: Text(
-        day.toString(),
-        style: const TextStyle(color: Colors.white),
+        widget.day.toString(),
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      subtitle: Text(
+        _colorOfTheSeason.value.toRadixString(16).toUpperCase(),
+        style: const TextStyle(
+          color: Colors.white,
+        ),
       ),
     );
   }
