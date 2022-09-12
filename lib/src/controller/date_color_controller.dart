@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:crypto/crypto.dart';
 import 'package:date_colors/date_colors.dart';
 
-/// A `controller` class implementing the [DateColorScheme]'s core logics.
+/// A `controller` class implementing the DateColors' core logics.
 class DateColorController {
   /// Creates a [DateColorController].
   const DateColorController();
@@ -15,48 +15,26 @@ class DateColorController {
   /// The year's color values.
   static final ColorsOfTheYear _coty = ColorsOfTheYear();
 
-  /// Returns a [Color] based on the elements represented on the Chinese Zodiac.
-  ///
-  /// - The Color of the Year pattern only contains 5 colors. If repeated color
-  /// patterns should be avoided, use the [generateUniqueColorOfYear] method to
-  /// generate an unique color for every year.
-  Color generateColorOfYear(int year) {
+  /// Generates a [Color] based on the provided [year] value.
+  Color generateYearColor(int year) {
     for (int i in _coty.lastDigitsOfYears) {
       if (year.toString().endsWith(i.toString())) {
         int cv = _coty.values[i] ?? _invalidColorError;
         if (cv == _invalidColorError) {
-          throw Exception("DateColors: No matching color found for "
-              "`generateColorOfYear`");
+          throw Exception("DateColorController: No matching color found for "
+              "`generateYearColor`");
         }
         return Color(cv);
       }
     }
 
     throw Exception(
-        'DateColors: Invalid year provided on `generateColorOfYear`');
+        'DateColorController: Invalid year provided on `generateYearColor`');
   }
 
-  /// Returns an unique [Color] based on the provided year.
-  ///
-  /// - The color value will be different year by year.
-  Color generateUniqueColorOfYear(int year) {
-    List<int> bytes = utf8.encode(year.toString());
-    String hex = "FF" + (md5.convert(bytes).toString().substring(0, 6));
-    int cv = int.tryParse(hex, radix: 16) ?? _invalidColorError;
-
-    if (cv != _invalidColorError) {
-      return Color(cv);
-    }
-
-    throw Exception("DateColors: Error parsing year argument on "
-        "generateUniqueColorOfYear");
-  }
-
-  /// Returns the color of the season based on the provided `month` and `day`
-  /// value.
-  ///
-  /// - The color value will be repeated year by year on the same calendar day.
-  Color generateColorOfSeason(int month, int day) {
+  /// Generates the [Color] on the season based on the provided [month] and
+  /// [day] values.
+  Color generateSeasonColor(int month, int day) {
     MonthColorData? data;
 
     switch (month) {
@@ -97,8 +75,8 @@ class DateColorController {
         data = ColorsOfDecember();
         break;
       default:
-        throw (Exception("DateColors: Invalid month provided "
-            "on `generateColorOfSeason`"));
+        throw (Exception("DateColorController: Invalid month provided "
+            "on `generateSeasonColor`"));
     }
     int cv = _invalidColorError;
     for (int i in data.calendarDays) {
@@ -112,12 +90,49 @@ class DateColorController {
     }
 
     throw Exception(
-        'DateColors: Invalid year provided on `generateColorOfSeason`');
+        'DateColorController: Invalid year provided on `generateColorOfSeason`');
   }
 
-  /// Returns an unique [Color] based on the provided [DateTime].
-  ///
-  /// - The color value will be different day by day and year by year.
+  /// Generates a combined [Color] based on the year and season colors.
+  Color generateCombinedSeasonYearColor(int year, int month, int day,
+      {double balance = 0.5}) {
+    Color? coty;
+    Color? cots;
+    Color? lerp;
+
+    try {
+      coty = generateYearColor(year);
+      cots = generateSeasonColor(month, day);
+    } catch (e) {
+      throw Exception("DateColorController: Invalid date provided on"
+          "`generateCombinedSeasonYearColor`");
+    }
+
+    lerp = Color.lerp(coty, cots, balance);
+
+    if (lerp != null) {
+      return lerp;
+    }
+
+    throw throw Exception("DateColorController: Invalid date provided on"
+        "`generateCombinedSeasonYearColor`");
+  }
+
+  /// Generates an unique [Color] based on the provided [year] value.
+  Color generateUniqueYearColor(int year) {
+    List<int> bytes = utf8.encode(year.toString());
+    String hex = "FF" + (md5.convert(bytes).toString().substring(0, 6));
+    int cv = int.tryParse(hex, radix: 16) ?? _invalidColorError;
+
+    if (cv != _invalidColorError) {
+      return Color(cv);
+    }
+
+    throw Exception("DateColorController: Error parsing year argument on "
+        "generateUniqueYearColor");
+  }
+
+  /// Generates an unique [Color] based on the provided [date] value.
   Color generateUniqueDateColor(DateTime date) {
     List<int> bytes = utf8.encode(date.microsecondsSinceEpoch.toString());
     String hex = "FF" + (md5.convert(bytes).toString().substring(0, 6));
@@ -125,7 +140,7 @@ class DateColorController {
     if (cv != _invalidColorError) {
       return Color(cv);
     }
-    throw Exception("DateColors: Error parsing date argument on "
+    throw Exception("DateColorController: Error parsing date argument on "
         "generateUniqueDateColor");
   }
 }
