@@ -37,6 +37,7 @@ dependencies:
   # The core packge (date_colors)
   date_colors: 
     path: ../
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
