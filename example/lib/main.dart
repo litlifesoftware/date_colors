@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       title: App.title,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.grey,
+          primarySwatch: Colors.blueGrey,
         ),
         useMaterial3: true,
       ),
