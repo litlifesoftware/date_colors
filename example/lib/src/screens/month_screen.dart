@@ -22,14 +22,16 @@ class _MonthScreenState extends State<MonthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: MonthData.monthLabels.length,
-      itemBuilder: ((context, index) => ListTile(
-            onTap: () => onTapMonthTile(index),
-            title: Text(
-              MonthData.monthLabels[index],
-            ),
-          )),
+    return Scrollbar(
+      child: ListView.builder(
+        itemCount: MonthData.monthLabels.length,
+        itemBuilder: ((context, index) => ListTile(
+              onTap: () => onTapMonthTile(index),
+              title: Text(
+                MonthData.monthLabels[index],
+              ),
+            )),
+      ),
     );
   }
 }

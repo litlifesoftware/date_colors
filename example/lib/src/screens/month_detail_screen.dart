@@ -77,12 +77,14 @@ class _MonthDetailScreenState extends State<MonthDetailScreen> {
           MonthData.monthLabels[widget.index],
         ),
       ),
-      body: ListView.builder(
-        itemCount: colorData.values.length,
-        itemBuilder: ((context, index) => _MonthDayTile(
-              day: index + 1,
-              month: widget.index + 1,
-            )),
+      body: Scrollbar(
+        child: ListView.builder(
+          itemCount: colorData.values.length,
+          itemBuilder: ((context, index) => _MonthDayTile(
+                day: index + 1,
+                month: widget.index + 1,
+              )),
+        ),
       ),
     );
   }
