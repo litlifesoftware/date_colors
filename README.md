@@ -55,7 +55,7 @@ The `/example` folder contains an example app demonstrating how DateColors could
 DateColors uses the following Dart dependencies in order to implement certain
 features and functionality:
 
-- [crypto](d1_link) - [License](d1_lic) (Creates a hash required to generate unique colors)
+- [crypto][d1_link] - [License][d1_lic] (Creates a hash required to generate unique colors)
 
 ## Credits
 
