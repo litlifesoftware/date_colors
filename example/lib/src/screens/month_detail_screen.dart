@@ -135,7 +135,7 @@ class _MonthDayTileState extends State<_MonthDayTile> {
         ),
       ),
       subtitle: Text(
-        _colorOfTheSeason.hexCode,
+        _colorOfTheSeason.hexCode24,
         style: const TextStyle(
           color: Colors.white,
         ),
